@@ -1,0 +1,376 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>BotanicalElegance | Flora &amp; Berries</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f5f3ee",
+                    "surface-container-high": "#eae8e3",
+                    "surface-container": "#f0eee9",
+                    "primary-container": "#b55577",
+                    "inverse-primary": "#ffb1c8",
+                    "tertiary": "#755717",
+                    "primary-fixed": "#ffd9e2",
+                    "primary-fixed-dim": "#ffb1c8",
+                    "secondary-container": "#d0e5d2",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e4e2dd",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e4e2dd",
+                    "on-tertiary-container": "#fffbff",
+                    "primary": "#973c5e",
+                    "background": "#fbf9f4",
+                    "surface-bright": "#fbf9f4",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#544247",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dbdad5",
+                    "on-secondary-fixed": "#0e1f13",
+                    "on-tertiary-fixed": "#261900",
+                    "secondary-fixed": "#d3e8d5",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "surface-tint": "#9a3f61",
+                    "on-secondary-container": "#546758",
+                    "inverse-on-surface": "#f2f1ec",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1b1c19",
+                    "secondary": "#506354",
+                    "tertiary-container": "#90702e",
+                    "outline-variant": "#d9c0c6",
+                    "on-primary-fixed-variant": "#7c2749",
+                    "surface": "#fbf9f4",
+                    "on-primary-fixed": "#3e001d",
+                    "secondary-fixed-dim": "#b7ccb9",
+                    "on-background": "#1b1c19",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#30312e",
+                    "on-secondary-fixed-variant": "#394b3d",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "outline": "#867277"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-premium {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(251, 249, 244, 0.9) 0%, rgba(251, 249, 244, 0.4) 50%, transparent 100%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+<div class="flex items-center gap-4">
+<img alt="Flora &amp; Berries Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO2WX57iLF6pQIG4bnzrDgAxwU1bJAXc9JRYMCjAjMRPiYo4vjJ0kdQh7Z3-NewvalZ1yTzwEwk5bguahh2pBss6sXdwWA3ukatfz3Ub-CJwjqsn-Kb0POrcwNdyPU2lCGH2bUBgQtjEQzQ_V1VqL5WhcESKvssgANp024wNAKxgAbF07Mo6JjTPgtAdunnGxhIucuQAsJpgyT1IIfXgHRxk3pzBEjeoeoKmEYjLsz7iMcmAs1gWIiFHc40DlrBUrE3Z1EUDvxxfs">
+<span class="font-display-lg text-display-lg text-primary tracking-tight">SofiaBerry's</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Catalog</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Featured</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md active:scale-95 transition-transform shadow-md hover:shadow-lg">WhatsApp Us</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[90vh] min-h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0 transition-all duration-1000 opacity-100 translate-y-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A lush, high-resolution close-up of a premium floral arrangement featuring deep pink peonies, white ranunculus, and vibrant red raspberries nestled among dark green eucalyptus leaves. The lighting is soft, natural morning light coming from a window, creating a warm, artisanal atmosphere. The background is a soft-focus minimalist wooden table against a creamy beige wall, embodying effortless luxury." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCfAo-7oeJ6m6Qf1_y5f-Y6tWfGjG4IeR9ZgkB8Sq4GWHvJNZxJlxnH5y5PLTQBf7g6uAQafMqzHkt0596EOMVk-PNQzKnBpMiY8zRm9OxSkYKFBU2JjB2QaKG110X1OsVA0KViVTcstQ1Z2UunM7xEzodxPzZlwKoZ6ROR2rECt3l0MQO3qC4AUmNZ_rHI_NdB6-kzqeKgqTPc7uYgoN893OszoW8Wb2pwzM_ucgFvvXllw7g2FF-sG5CmPPLOKONm9ZeqzxFUCEc&quot;);">
+</div>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full transition-all duration-1000 opacity-100 translate-y-0">
+<div class="max-w-2xl space-y-6">
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full text-label-md font-label-md animate-pulse">Novedades de Temporada</span>
+<h1 class="font-display-lg text-display-lg md:text-[64px] text-primary leading-tight">Elegancia Natural en cada Detalle</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Creamos experiencias sensoriales que combinan la delicadeza de las flores frescas con la frescura de las bayas de temporada. Arte botánico para momentos inolvidables.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-md text-label-md hover:shadow-xl hover:translate-y-[-2px] transition-all active:scale-95">Ver Catálogo</button>
+<button class="border border-outline text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-all">Saber más</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Picker (Specialized Component) -->
+<section class="py-16 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop transition-all duration-1000 opacity-100 translate-y-0">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface">Explora por Ocasión</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full border border-outline-variant hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-4 scrollbar-hide no-scrollbar">
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">favorite</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Aniversario</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">cake</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Cumpleaños</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">celebration</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Graduación</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">home_health</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Nuevo Hogar</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">redeem</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Corporativo</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Porque sí</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Gallery (Bento Grid) -->
+<section class="py-24 bg-background">
+<div class="max-w-container-max mx-auto px-margin-desktop transition-all duration-1000 opacity-100 translate-y-0">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">Colección Destacada</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Nuestros arreglos más solicitados, diseñados para capturar la esencia de la temporada con texturas orgánicas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[800px]">
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="An expansive, luxury floral centerpiece on a dark slate surface. The arrangement features large white hydrangeas, lavender sprigs, and clusters of deep purple blackberries. The lighting is moody and dramatic, with a spotlight effect highlighting the dewdrops on the petals. The overall aesthetic is one of high-end boutique artistry and natural sophistication." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCD9hs1laGBHM19Xuxg4OhFp1qmM9zNIn508uS1gFkt7RrrKhxBv-t0VhF9pr_FJlSoPNoDb5WnISBY7kIlTod0WBc0JdXVydNSqVbYTpBTx3R_AXDn8lS6sYxmebr3wG9nvQGgNeXLUqYCb0nsbuzaUSxX1dnB312grBsqKcNQ-9gFnuLQ6963xeAML6RexP-1CkbS2YN8_nbvKxdF5CeYlljYhmVisYgAArALrV1wca6cn9NhHmAgdPPPJ4M8vBxs4MDX8iv1C3o&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 text-white">
+<h3 class="font-headline-sm text-headline-sm">Serenata de Lavanda</h3>
+<p class="font-body-md opacity-90">Hydrangeas y frutos del bosque</p>
+<button class="mt-4 self-start bg-white text-primary px-6 py-2 rounded-full font-label-md">Explorar</button>
+</div>
+</div>
+<div class="md:col-span-4 space-y-gutter flex flex-col">
+<div class="flex-1 group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A vertical composition of a single flower vase featuring a mix of bright pink tulips and sliced strawberries artistically arranged at the base within the glass. Bright, airy, and cheerful high-key lighting creates a fresh and modern vibe. The background is a clean white marble surface, perfect for a high-end minimalist design." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAdsomS7nnsePfxTX-KQweVtHddroKt7ksj9di8q0G-NLsMR-bXc7JdRoUvj2X_fNV-dn-YIUOPmwKaUrfFYBXJT4g9BNuFkRSeQXOvJ0Cwh_WiCpCfs3EX-7WSO74ixkOAQc8Au00IIXKMm98hCNVREj-PoxN6u5ffLAI04HWMMMXo5EvbEN9HF3JP-7tRN97-r08B9H08RZnNHKrCzdjbYoLjZgrXW0bI8bx9r3ev9MOVZ5lpDL4WX1E56NQN9ikK_0b0XJgpXYM&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+<h3 class="font-label-md text-label-md font-bold">Dulce Amanecer</h3>
+</div>
+</div>
+<div class="flex-1 group relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated floral arrangement in a copper vase, showcasing autumn-toned dahlias, dried wheat stalks, and golden-yellow berries. The lighting is warm and golden-hour inspired, casting long soft shadows. The setting is a cozy, elegant library with dark wood tones in the background, evoking a sense of heritage and artisanal craft." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBRJ7cXudx5nDILMzD4MjduBMDrybPyhrGyJ00gtVGg5_pn73-keE-hiUGvj3ZA8VVl_KvkfEmoGnNWx7ewD2Z33fLQRljQEn_O62JUIFx9gwcAHpo6AhXoOAlrkqwFTS6qnzF1YRHuXIZyVhcVPkyRTVTftMzd4f3QmAf-nEE6uf1koIkU2ks3gyXNecyVXqVc7W7-GF-ANi1Ewmk2G2XPuE1PQ82olEgzdxyaKP6cFpbOU6Fe_b17r48MswZGlH3hpNkxE-q-_OA&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+<h3 class="font-label-md text-label-md font-bold">Otoño Dorado</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials (Tonal Layering Cards) -->
+<section class="py-24 bg-surface-container">
+<div class="max-w-container-max mx-auto px-margin-desktop transition-all duration-1000 opacity-100 translate-y-0">
+<h2 class="font-headline-md text-headline-md text-center mb-16 text-on-surface">Voces de Nuestra Comunidad</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-xl shadow-sm hover:translate-y-[-8px] transition-transform duration-300">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"El detalle de las bayas frescas le da un toque único que no he visto en ninguna otra florería. Simplemente exquisito."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed"></div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Maria Fernanda G.</p>
+<p class="text-xs text-outline">Cliente frecuente</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-sm hover:translate-y-[-8px] transition-transform duration-300">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"Pedí un arreglo para el aniversario de mis padres y quedaron maravillados. La fragancia duró más de una semana."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed"></div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Carlos Alberto R.</p>
+<p class="text-xs text-outline">Aniversario</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-sm hover:translate-y-[-8px] transition-transform duration-300">
+<div class="flex text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"Atención impecable por WhatsApp. Me ayudaron a elegir las flores perfectas según el significado que buscaba."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed"></div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Lucía Mendez</p>
+<p class="text-xs text-outline">Regalo de Cumpleaños</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full py-12">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img alt="Flora &amp; Berries Logo small" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO2WX57iLF6pQIG4bnzrDgAxwU1bJAXc9JRYMCjAjMRPiYo4vjJ0kdQh7Z3-NewvalZ1yTzwEwk5bguahh2pBss6sXdwWA3ukatfz3Ub-CJwjqsn-Kb0POrcwNdyPU2lCGH2bUBgQtjEQzQ_V1VqL5WhcESKvssgANp024wNAKxgAbF07Mo6JjTPgtAdunnGxhIucuQAsJpgyT1IIfXgHRxk3pzBEjeoeoKmEYjLsz7iMcmAs1gWIiFHc40DlrBUrE3Z1EUDvxxfs">
+<span class="font-display-lg text-display-lg text-primary">BotanicalElegance</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Artesanía floral y frutal para los gustos más exigentes.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-widest">Legal</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Shipping Info</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-widest">Suscríbete</h4>
+<div class="flex gap-2">
+<input class="flex-1 bg-white border border-outline px-4 py-2 rounded-md font-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Tu email" type="email">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-md font-label-md active:scale-95 transition-transform">Ok</button>
+</div>
+<p class="text-xs text-on-surface-variant opacity-80">© 2024 Botanical Elegance. Crafted for Artisanal Beauty.</p>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav (Mobile) -->
+<div class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/90 backdrop-blur-md border-t border-outline-variant shadow-lg md:hidden">
+<button class="flex flex-col items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-[10px]">Catalog</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-md text-[10px]">Contact</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-all">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-md text-[10px]">WhatsApp</span>
+</button>
+</div>
+<!-- WhatsApp Floating Action Button -->
+<a class="fixed bottom-24 right-6 md:bottom-12 md:right-12 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-90 transition-all animate-float" href="#">
+<svg fill="currentColor" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.56 5.338-11.891 11.903-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.561-5.338 11.892-11.902 11.892-2.002 0-3.968-.505-5.717-1.465l-6.277 1.682zm4.747-4.305l.34.202c1.452.862 3.09 1.317 4.766 1.317 4.938 0 8.958-4.017 8.958-8.953 0-2.392-.93-4.642-2.62-6.333-1.691-1.691-3.94-2.622-6.333-2.622-4.939 0-8.958 4.017-8.958 8.953 0 1.761.513 3.479 1.484 4.965l.22.338-.98 3.58 3.663-.947zm11.233-5.26c-.28-.14-1.658-.818-1.914-.911-.257-.093-.443-.14-.63.14-.186.28-.724.911-.887 1.096-.163.186-.326.21-.606.07-.28-.14-1.182-.435-2.251-1.39-.831-.741-1.391-1.657-1.554-1.937-.163-.28-.017-.431.123-.57.126-.126.28-.326.42-.489.14-.163.186-.28.28-.466.093-.186.046-.35-.023-.489-.069-.14-.63-1.517-.863-2.077-.226-.547-.456-.473-.63-.482-.163-.008-.35-.01-.536-.01-.186 0-.489.07-.746.35-.257.28-.98.958-.98 2.335 0 1.378 1.002 2.709 1.142 2.895.14.186 1.972 3.011 4.777 4.22.667.288 1.189.46 1.594.588.67.213 1.279.183 1.761.11.536-.081 1.658-.677 1.891-1.332.233-.655.233-1.214.163-1.332-.069-.118-.257-.187-.536-.327z"></path>
+</svg>
+</a>
+<script>
+        // Intersection Observer for fade-in effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+
+</body></html>
