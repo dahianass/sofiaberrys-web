@@ -81,7 +81,7 @@ export const mockCategories = [
   { id: "Aniversario", name: "Aniversario", icon: "favorite" },
   { id: "Cumpleaños", name: "Cumpleaños", icon: "cake" },
   { id: "Graduación", name: "Graduación", icon: "celebration" },
-  { id: "Nuevo Hogar", name: "Nuevo Hogar", icon: "home_health" },
+  { id: "Nuevo Hogar", name: "Nuevo Hogar", icon: "home" },
   { id: "Corporativo", name: "Corporativo", icon: "redeem" },
   { id: "Porque sí", name: "Porque sí", icon: "auto_awesome" }
 ];
