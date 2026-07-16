@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   }).format(product.price);
 
   // Generates WhatsApp message link for the product
-  const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/573107716085?text=${encodeURIComponent(
     `Hola SofiaBerry's, estoy interesado en el arreglo "${product.name}" ($${product.price})`
   )}`;
 
@@ -53,7 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className="font-serif text-lg font-bold text-burgundy mb-2 group-hover:text-burgundy-dark transition-colors">
           {product.name}
         </h3>
-        
+
         <p className="font-sans text-xs text-on-surface-variant leading-relaxed mb-6 flex-grow">
           {product.description}
         </p>

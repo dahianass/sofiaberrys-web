@@ -5,14 +5,14 @@ import { mockProducts } from "@/app/data/mockProducts";
 export default function FeaturedGallery() {
   // Filter for featured products
   const featured = mockProducts.filter((p) => p.featured);
-  
+
   // Find the large item and the list of small items
   const largeItem = featured.find((p) => p.bentoSize === "large") || featured[0];
   const smallItems = featured.filter((p) => p.bentoSize === "small");
 
   // WhatsApp click handler for exploration
   const getWhatsAppLink = (name: string, price: number) => {
-    return `https://wa.me/1234567890?text=${encodeURIComponent(
+    return `https://wa.me/573107716085?text=${encodeURIComponent(
       `Hola SofiaBerry's, me interesa saber más sobre el arreglo destacado "${name}"`
     )}`;
   };

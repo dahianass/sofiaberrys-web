@@ -48,7 +48,7 @@ export default function Navbar() {
             Contacto
           </Link>
           <a
-            href="https://wa.me/1234567890"
+            href="https://wa.me/573107716085"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-burgundy text-white hover:bg-burgundy-dark px-6 py-2.5 rounded-full font-sans text-xs font-semibold uppercase tracking-wider active:scale-95 transition-all shadow-md hover:shadow-lg"
