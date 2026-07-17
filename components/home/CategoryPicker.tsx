@@ -1,18 +1,27 @@
 "use client";
 
 import { useRef } from "react";
-import { mockCategories } from "@/app/data/mockProducts";
+import { useRouter } from "next/navigation";
+
+const categories = [
+  { id: "all", name: "Todos", icon: "grid_view" },
+  { id: "Aniversario", name: "Aniversario", icon: "favorite" },
+  { id: "Cumpleaños", name: "Cumpleaños", icon: "cake" },
+  { id: "Graduación", name: "Graduación", icon: "celebration" },
+  { id: "Nuevo Hogar", name: "Nuevo Hogar", icon: "home" },
+  { id: "Corporativo", name: "Corporativo", icon: "redeem" },
+  { id: "Porque sí", name: "Porque sí", icon: "auto_awesome" },
+];
 
 interface CategoryPickerProps {
   selectedCategory: string;
-  onSelectCategory: (category: string) => void;
 }
 
 export default function CategoryPicker({
   selectedCategory,
-  onSelectCategory,
 }: CategoryPickerProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -22,6 +31,16 @@ export default function CategoryPicker({
         behavior: "smooth",
       });
     }
+  };
+
+  const handleSelect = (categoryId: string) => {
+    const params = new URLSearchParams();
+    // Reset to page 1 when changing category
+    params.set("page", "1");
+    if (categoryId !== "all") {
+      params.set("category", categoryId);
+    }
+    router.push(`/?${params.toString()}`);
   };
 
   return (
@@ -54,12 +73,12 @@ export default function CategoryPicker({
           ref={scrollContainerRef}
           className="flex gap-6 sm:gap-8 overflow-x-auto pb-4 no-scrollbar scroll-smooth"
         >
-          {mockCategories.map((category) => {
+          {categories.map((category) => {
             const isActive = selectedCategory === category.id;
             return (
               <button
                 key={category.id}
-                onClick={() => onSelectCategory(category.id)}
+                onClick={() => handleSelect(category.id)}
                 className="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer outline-none focus:ring-2 focus:ring-burgundy/40 rounded-xl p-1"
               >
                 <div

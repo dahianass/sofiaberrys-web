@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/app/data/mockProducts";
+import { Product } from "@/lib/types";
 
 interface ProductCardProps {
   product: Product;

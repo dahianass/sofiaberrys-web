@@ -1,21 +1,25 @@
-"use client";
+import { supabase } from "@/lib/supabase";
+import { Product } from "@/lib/types";
 
-import { mockProducts } from "@/app/data/mockProducts";
+const getWhatsAppLink = (name: string) =>
+  `https://wa.me/573107716085?text=${encodeURIComponent(
+    `Hola SofiaBerry's, me interesa saber más sobre el arreglo destacado "${name}"`
+  )}`;
 
-export default function FeaturedGallery() {
-  // Filter for featured products
-  const featured = mockProducts.filter((p) => p.featured);
+export default async function FeaturedGallery() {
+  // Fetch featured products from Supabase server-side
+  const { data } = await supabase
+    .from("products")
+    .select("*")
+    .eq("featured", true)
+    .order("created_at", { ascending: true });
+
+  const featured = (data as Product[]) ?? [];
 
   // Find the large item and the list of small items
-  const largeItem = featured.find((p) => p.bentoSize === "large") || featured[0];
-  const smallItems = featured.filter((p) => p.bentoSize === "small");
-
-  // WhatsApp click handler for exploration
-  const getWhatsAppLink = (name: string, price: number) => {
-    return `https://wa.me/573107716085?text=${encodeURIComponent(
-      `Hola SofiaBerry's, me interesa saber más sobre el arreglo destacado "${name}"`
-    )}`;
-  };
+  const largeItem =
+    featured.find((p) => p.bento_size === "large") || featured[0];
+  const smallItems = featured.filter((p) => p.bento_size === "small");
 
   return (
     <section className="py-24 bg-background">
@@ -26,7 +30,8 @@ export default function FeaturedGallery() {
             Colección Destacada
           </h2>
           <p className="font-sans text-sm md:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
-            Nuestros arreglos más solicitados, diseñados para capturar la esencia de la temporada con texturas orgánicas.
+            Nuestros arreglos más solicitados, diseñados para capturar la
+            esencia de la temporada con texturas orgánicas.
           </p>
         </div>
 
@@ -49,7 +54,7 @@ export default function FeaturedGallery() {
                   {largeItem.description.split(".")[0]}
                 </p>
                 <a
-                  href={getWhatsAppLink(largeItem.name, largeItem.price)}
+                  href={getWhatsAppLink(largeItem.name)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="self-start bg-white text-burgundy font-semibold hover:bg-rose-blush px-6 py-2 rounded-full font-sans text-xs uppercase tracking-wider transition-colors shadow-sm active:scale-95"
@@ -74,16 +79,17 @@ export default function FeaturedGallery() {
                   aria-label={item.name}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
-                  <h3 className="font-serif text-lg font-bold">
-                    {item.name}
-                  </h3>
+                  <h3 className="font-serif text-lg font-bold">{item.name}</h3>
                   <a
-                    href={getWhatsAppLink(item.name, item.price)}
+                    href={getWhatsAppLink(item.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 text-xs font-semibold text-rose-blush hover:text-white transition-colors uppercase tracking-wider flex items-center gap-1.5"
                   >
-                    Ver detalles <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                    Ver detalles{" "}
+                    <span className="material-symbols-outlined text-xs">
+                      arrow_forward
+                    </span>
                   </a>
                 </div>
               </div>

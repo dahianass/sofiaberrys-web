@@ -1,25 +1,33 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "@/components/home/Navbar";
 import Hero from "@/components/home/Hero";
 import CategoryPicker from "@/components/home/CategoryPicker";
 import ProductCard from "@/components/home/ProductCard";
+import Pagination from "@/components/home/Pagination";
 import FeaturedGallery from "@/components/home/FeaturedGallery";
 import Testimonials from "@/components/home/Testimonials";
 import Footer from "@/components/home/Footer";
 import MobileBottomNav from "@/components/home/MobileBottomNav";
 import FloatingWhatsApp from "@/components/home/FloatingWhatsApp";
-import { mockProducts } from "@/app/data/mockProducts";
+import { getProducts } from "@/lib/queries/products";
 
-export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  // Resolve searchParams server-side (Next.js 15+/16 API)
+  const params = await searchParams;
+  const pageParam = typeof params.page === "string" ? params.page : "1";
+  const categoryParam =
+    typeof params.category === "string" ? params.category : "all";
 
-  // Filter products dynamically based on the selected category from CategoryPicker
-  const filteredProducts =
-    selectedCategory === "all"
-      ? mockProducts
-      : mockProducts.filter((product) => product.category === selectedCategory);
+  const currentPage = Math.max(1, parseInt(pageParam, 10) || 1);
+
+  // Fetch paginated products from Supabase server-side
+  const { products, totalPages } = await getProducts({
+    page: currentPage,
+    category: categoryParam,
+  });
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -30,11 +38,8 @@ export default function Home() {
         {/* Hero Banner */}
         <Hero />
 
-        {/* Occasion / Category Selector */}
-        <CategoryPicker
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
+        {/* Occasion / Category Selector — reads selectedCategory from URL */}
+        <CategoryPicker selectedCategory={categoryParam} />
 
         {/* Dynamic Products Grid */}
         <section className="py-20 max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10">
@@ -43,16 +48,26 @@ export default function Home() {
               Catálogo de Arreglos
             </h2>
             <p className="font-sans text-sm md:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
-              Explora nuestra colección especial de flores frescas y fresas de temporada, diseñadas con amor y presentadas con elegancia.
+              Explora nuestra colección especial de flores frescas y fresas de
+              temporada, diseñadas con amor y presentadas con elegancia.
             </p>
           </div>
 
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+          {products.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+
+              {/* Server-side pagination */}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                category={categoryParam}
+              />
+            </>
           ) : (
             <div className="text-center py-16 text-on-surface-variant font-medium font-sans">
               No hay arreglos disponibles en esta categoría por el momento.
