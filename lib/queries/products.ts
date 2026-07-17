@@ -20,6 +20,7 @@ export async function getProducts({
   let query = supabase
     .from('products')
     .select('*', { count: 'exact' })
+    .order('featured', { ascending: false })
     .order('created_at', { ascending: true });
 
   if (category && category !== 'all') {

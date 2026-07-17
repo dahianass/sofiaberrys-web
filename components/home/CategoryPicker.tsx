@@ -11,6 +11,7 @@ const categories = [
   { id: "Nuevo Hogar", name: "Nuevo Hogar", icon: "home" },
   { id: "Corporativo", name: "Corporativo", icon: "redeem" },
   { id: "Porque sí", name: "Porque sí", icon: "auto_awesome" },
+  { id: "Tu Diseño", name: "Tu Diseño", icon: "palette" },
 ];
 
 interface CategoryPickerProps {
